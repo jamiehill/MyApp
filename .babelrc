@@ -1,0 +1,15 @@
+{
+  "presets": ["react-native"],
+  "plugins": [
+    "transform-decorators-legacy",
+    ["module-resolver", {
+      "alias": {
+        "app": "MyApp/src/app",
+        "config": "MyApp/src/config",
+        "images": "MyApp/src/images",
+        "styles": "MyApp/src/styles",
+        "i18n": "MyApp/src/app/i18n"
+      }
+    }]
+  ]
+}
