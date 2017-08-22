@@ -1,10 +1,17 @@
 import { StyleSheet } from 'react-native'
-import { Metrics, AppStyles } from 'styles'
+import { AppStyles, Metrics, Colors } from 'styles'
 
 export default StyleSheet.create({
   ...AppStyles.screen,
   container: {
     paddingBottom: Metrics.baseMargin
+  },
+  listContent: {
+
+  },
+  separator: {
+    backgroundColor: Colors.puke,
+    height: 1
   },
   logo: {
     marginTop: Metrics.doubleSection,
@@ -15,7 +22,7 @@ export default StyleSheet.create({
   top: {
     marginTop: -5,
     height: 40,
-    width: 40,
+    width: 40
   },
   centered: {
     alignItems: 'center'

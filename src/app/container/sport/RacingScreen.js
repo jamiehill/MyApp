@@ -1,38 +1,33 @@
 import React from 'react'
-import { ScrollView, Text, Image, View } from 'react-native'
-import RoundedButton from 'app/component/RoundedButton'
-import { Colors, Images, AppStyles } from 'styles'
-import styles from './RacingScreenStyles'
+import { ScrollView, Image, View, ListView } from 'react-native'
+import RacingItem from './items/RacingItem'
+import Presenter from './RacingScreenPM'
+import { presenter } from 'app/util/hoc'
+import { Images } from 'styles'
+import styles from './styles'
+
+const Separator = ({ rowId }) => (
+  <View key={rowId} style={styles.separator} />
+)
 
 const RacingScreen = props => (
   <View style={styles.mainContainer}>
     <Image source={Images.background} style={styles.backgroundImage} resizeMode='stretch' />
     <ScrollView style={styles.container}>
-      <View style={styles.centered}>
-        <Image source={Images.appclon} style={styles.logo} />
-      </View>
-
-      <View style={styles.section} >
-        <Text style={styles.sectionText}>
-          Racing Yeah!
-        </Text>
-      </View>
-
-      <RoundedButton
-        text={`Search "Jamie" on Spotify`}
+      <ListView
+        contentContainerStyle={styles.listContent}
+        renderSeparator={Separator}
+        dataSource={props.pm.dataSource}
+        renderRow={RacingItem}
+        pageSize={15}
       />
-
-      <RoundedButton
-        text={`Login`}
-      />
-
     </ScrollView>
   </View>
 )
 
 RacingScreen.navigationOptions = {
   title: <Image source={Images.launch} style={styles.top} />,
-  headerVisible: true,
+  headerVisible: true
 }
 
-export default RacingScreen
+export default presenter(Presenter, RacingScreen)

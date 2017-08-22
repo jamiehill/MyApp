@@ -1,4 +1,8 @@
 const colors = {
+  black: '#000000',
+  white: '#FFFFFF',
+  puke: '#ebdf64',
+
   background: '#000000',
   clear: 'rgba(0,0,0,0)',
   facebook: '#3b5998',
